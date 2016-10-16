@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>400</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>BasePanel
+--
+~FloorName = "Lattia": String
+~TrashName = "Roskakori": String
+~MouldName = "Multa": String
+~ImportedName = "Tuodut": String
+-jPanelResults1: JPanelResults
+-plainFoodStorageLattia: PlainFoodStorage
+-plainFoodStorageMulta: PlainFoodStorage
+-plainFoodStorageRoskakori: PlainFoodStorage
+-plainFoodStorageTuodut: PlainFoodStorage
+--
++BasePanel(): ctor
+-initPlain(PlainFoodStorage ppfs, 
+    String pname, boolean dragEnabled): void
++setGameController(GameController gc): void
++getFloorName(): String
++getTrashName(): String
++getMouldName(): String
++getImportedName(): String
++getJPanelResults1(): JPanelResults
++getPlainFoodStorageRoskakori(): PlainFoodStorage
++getPlainFoodStorageTuodut(): PlainFoodStorage
++updateMyResult(int pvalue, int prow, int pcolumn): void
+-initComponents(): void
+--
+Abase panel for a frame.  Contains result panel,
+floor, mould in yard, trashcan, and imported food.
+Food is stored in those places and in cabinets.
+The temperature is adjustable in cabinets but not
+anywhere in base panel (no cabinets here).</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>270</y>
+      <w>370</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>JPanelCabinet
+--
+~tempValue: int (model for the textbox and slider)
+-cabinetLabel: JLabel
+-cabinetLabelUnit: JLabel
+-jFormattedTextFieldT: JFormattedTextField
+  has JTextFieldFocusListener (custom)
+    TempVerifier: custom input verifier
+-jSliderT: JSlider
+  has SliderChangeListener (custom)
+-plainFoodStorage:PlainFoodStorage
+-bindingGroup: org.jdesktop.beansbinding.BindingGroup
+    binding textfield and slider
+--
++JPanelCabinet(): ctor
++getTempValue(): Integer
++setTempValues(int ptemp): void
++getJFormattedTextFieldT(): FormattedTextField
++getJSliderT(): JSlider
++getPlainFoodStorage(): PlainFoodStorage
+-initComponents(): void
+--
+A food storage whose temperature can be adjusted.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>520</y>
+      <w>360</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>JPanelResults
+--
+-controller: GameController
+-jButtonResults: JButton
+-jScrollPaneResults: JScrollPane
+    -jPanelResults: scrollpane viewport
+        -jTableResults: JTable in the viewport
+--
++JPanelResults(): ctor
++getJTableResults(): JTable
++setController(GameController pcontroller): void
+-initComponents(): void
+-jButtonResultsActionPerformed(ActionEvent evt): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>650</y>
+      <w>270</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>FoodListModel
+--
+~foods = new ArrayList(): 
+    ArrayList&lt;Object&gt;
+--
++getSize(): int
++getElementAt(int index): Object
++addFoodElement(Object element): void
++insertFoodElement(int index, 
+    Object element): void
++removeFoodElement(int index): void
++update(int index): void
+--
+Model for PlainFoodStorage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>650</y>
+      <w>210</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>PlainFoodStorage
+--
+-jScrollPaneFood: JScrollPane
+    -jListFood: JList as viewport
+--
++PlainFoodStorage(): ctor
+-initComponents(): void
+~getJListFood(): JList
+--
+List of food stored in one place,
+either in cabinet or base panel</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>10</y>
+      <w>250</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>MyCabinetPanels
+{HashMap MyCabinetPanels
+  &lt;String, JPanel&gt;}
+--
+Key: Cabinet name
+Vaule: Panel for a few JPanelCabinets
+--
+--
+A collection of JPanelCabinets.
+A frame can have a few 
+such collections.</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>170</y>
+      <w>90</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>870</y>
+      <w>160</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>JList
+--
+--
+See Swing JList
+MouseDragHandler
+MyCellRenderer
+Lists use the shared
+  ListTransferHandler
+--
+JList for food elements</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>200</x>
+      <y>460</y>
+      <w>50</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>370</x>
+      <y>460</y>
+      <w>150</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>610</y>
+      <w>130</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>820</y>
+      <w>40</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+fg=black
+bg=black</panel_attributes>
+    <additional_attributes>10.0;50.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>840</y>
+      <w>200</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+bg=black</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>460</y>
+      <w>120</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+1
+results
+&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>580</x>
+      <y>840</y>
+      <w>300</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+1
+list model &gt;</panel_attributes>
+    <additional_attributes>10.0;90.0;280.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>820</y>
+      <w>130</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+1
+scrollable list &gt;</panel_attributes>
+    <additional_attributes>20.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>610</y>
+      <w>170</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+1
+food list &gt;</panel_attributes>
+    <additional_attributes>10.0;40.0;150.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>170</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+0..n
+cabinets in panel &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>340</x>
+      <y>460</y>
+      <w>160</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+4
+my cabinets &gt;</panel_attributes>
+    <additional_attributes>100.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>90</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Panel
+{cabinet collection}
+--
+See Swing
+--
+Collection of cabinets</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>50</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>670</x>
+      <y>20</y>
+      <w>200</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+1
+0..n
+panels &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;70.0</additional_attributes>
+  </element>
+</diagram>

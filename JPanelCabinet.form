@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+        <TitledBorder title="S&#xe4;ilytystila"/>
+      </Border>
+    </Property>
+    <Property name="name" type="java.lang.String" value="cabinetPanel" noResource="true"/>
+  </Properties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+              <Component id="cabinetLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="jFormattedTextFieldT" min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="cabinetLabelUnit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+              <Component id="jSliderT" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Component id="plainFoodStorage" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cabinetLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jFormattedTextFieldT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cabinetLabelUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jSliderT" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Component id="plainFoodStorage" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldT">
+      <Properties>
+        <Property name="columns" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="3" type="code"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="toolTipText" type="java.lang.String" value="L&#xe4;mp&#xf6;tilan voi sy&#xf6;tt&#xe4;&#xe4; my&#xf6;s t&#xe4;ss&#xe4;."/>
+        <Property name="name" type="java.lang.String" value="cabinetTextField" noResource="true"/>
+      </Properties>
+      <BindingProperties>
+        <BindingProperty name="value" source="jSliderT" sourcePath="${value}" target="jFormattedTextFieldT" targetPath="value" updateStrategy="0" immediately="false">
+          <Property name="name" type="java.lang.String" value="bindTemp"/>
+        </BindingProperty>
+      </BindingProperties>
+    </Component>
+    <Component class="javax.swing.JSlider" name="jSliderT">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="maximum" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Food.highlimittemp" type="code"/>
+        </Property>
+        <Property name="minimum" type="int" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Food.lowlimittemp" type="code"/>
+        </Property>
+        <Property name="paintLabels" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="S&#xe4;&#xe4;d&#xe4; s&#xe4;ilytystilan l&#xe4;mp&#xf6;tila."/>
+        <Property name="value" type="int" value="20"/>
+        <Property name="name" type="java.lang.String" value="cabinetSlider" noResource="true"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cabinetLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Temperature"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cabinetLabelUnit">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C"/>
+      </Properties>
+    </Component>
+    <Component class="hygieniapeli.PlainFoodStorage" name="plainFoodStorage">
+    </Component>
+  </SubComponents>
+</Form>

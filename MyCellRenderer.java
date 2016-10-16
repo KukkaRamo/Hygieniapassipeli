@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hygieniapeli;
 
 /**
- *
+ * This is the cell renderer class used in lists of PlainFoodStorage panels.
+ * Each list has its own cell renderer.
  * @author Kukka
  */
 public class MyCellRenderer extends javax.swing.JLabel implements javax.swing.ListCellRenderer<Object> {

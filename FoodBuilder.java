@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hygieniapeli;
-
 /**
  *
  * @author Kukka
@@ -14,18 +8,32 @@ public class FoodBuilder {
     static int lowlimittemp = Food.lowlimittemp;
     static int highlimittemp = Food.highlimittemp;
     
-    
+ /**
+ * Create food.
+ * 
+ * @param name Name of the food
+ * @param type Type of the processed food
+ * @return a food builder for piping
+ */
     FoodBuilder createFood (String name, ProcessedFoodType type) {
         this.builtFood=new Food(name, type);
         return this;
     }
     
+ /**
+ * Check the validity of the food.  The limits for the selling and production 
+ * temperatures must have valid values.
+ *
+ * @return a boolean variable whether the food is valid
+ */
     boolean checkMe() {
-        int high = this.builtFood.getTemphigh();
         int low = this.builtFood.getTemplow();
-        if (low<lowlimittemp) return false;
-        if (high<low || high >highlimittemp) return false;
-        return true;
+        int high = this.builtFood.getTemphigh();
+        int prodlow = this.builtFood.getProdtemplow();
+        int prodhigh = this.builtFood.getProdtemphigh();     
+        if (low<lowlimittemp || high >highlimittemp || low>high) return false;
+        return (prodlow >= lowlimittemp && prodhigh <= highlimittemp
+        && prodlow <= prodhigh);
     }
     
     public Food getResult() {
@@ -59,10 +67,25 @@ public class FoodBuilder {
     
     public boolean isDried() { return builtFood.getDried();}
     
-    public FoodBuilder canClosed() { builtFood.canClosed(); return this; }
+    /**
+    * Make the food canned with can closed.  The food will be packed.
+    *
+    * @return the food builder for piping
+    */
+    public FoodBuilder closeCan() { builtFood.closeCan(); return this; }
     
-    public FoodBuilder canOpen() { builtFood.canOpen(); return this;}
+    /**
+    * Make the food canned with can open.  The food will not be packed.
+    * 
+    * @return the food builder for piping
+    */
+    public FoodBuilder openCan() { builtFood.openCan(); return this;}
     
+    /**
+    * Make the food dried.
+    *
+    * @return the food builder for piping
+    */
     public FoodBuilder dry() { builtFood.dry(); return this;}   
 
 }

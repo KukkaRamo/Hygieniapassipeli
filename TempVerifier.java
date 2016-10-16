@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hygieniapeli;
-import java.awt.Component;
+import javax.swing.JComponent;
+import javax.swing.JFormattedTextField;
+
 /**
  * Input verifier for temperature controllers.
  *
@@ -12,39 +9,42 @@ import java.awt.Component;
  */
 public class TempVerifier extends javax.swing.InputVerifier {
     
-    javax.swing.JFormattedTextField myTextField;
-    String defaultValue;
+    private void putTempToModel (JComponent input) { // Input OK, controller changes the model and the view values.
+        ((JPanelCabinet)input.getParent()).setTempValues(
+            Integer.parseInt(((JFormattedTextField)input).getText())); //MPC pattern here
+    }
     
-    TempVerifier(javax.swing.JFormattedTextField pMyTextField, Integer pDefaultValue) {
-        myTextField = pMyTextField;
-        defaultValue = pDefaultValue.toString().trim();
+    private void getTempFromModel (JComponent input) {
+        Integer value = ((JPanelCabinet) input.getParent()).getTempValue();
+        // Controller changes the view to the old value after bad input.
+        ((JFormattedTextField) input).setValue(value);
     }
     
     @Override
     public boolean verify (javax.swing.JComponent input) {
-        if (input == null || ! (input instanceof javax.swing.JFormattedTextField)) return true;
-        javax.swing.JFormattedTextField tf = (javax.swing.JFormattedTextField) input;
-        try { int temp = Integer.parseInt(tf.getText()); 
-            if (temp < Food.lowlimittemp || temp > Food.highlimittemp) {
-                return false; // I would have defined temp outside the try-block
-                // and put this if-statement right after the try- and catch-blocks,
-                // but this stupid compiler then says that the if-statement is redundant
-            }
+        if (input == null || ! (input instanceof JFormattedTextField)) return true;
+        JFormattedTextField tf = (JFormattedTextField) input;
+        int temp;
+        try {
+            temp = Integer.parseInt(tf.getText()); 
         } catch (java.lang.NumberFormatException e) {
             return false;
         }
-        return true;
+        return (temp >= Food.lowlimittemp && temp <= Food.highlimittemp);
     }
     
     @Override
-    public boolean shouldYieldFocus(javax.swing.JComponent input) {
+    public boolean shouldYieldFocus(JComponent input) {
         if (this.verify(input)) {
+            if (input != null && (input instanceof JFormattedTextField))
+               putTempToModel(input);
             return true;
         } else {
             javax.swing.JOptionPane.showMessageDialog(null, "Anna tavanomainen lämpötila yksinkertaisena kokonaislukuna.");
-            myTextField.setText(defaultValue);
-            myTextField.repaint();
+            getTempFromModel(input);
+            ((JFormattedTextField) input).repaint();
             return false; 
         }
     }
+
 }

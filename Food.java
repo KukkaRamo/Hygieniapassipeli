@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package hygieniapeli;
+import java.lang.reflect.Field;
+
 /**
  *
  * @author Kukka
@@ -12,6 +8,7 @@ package hygieniapeli;
 public class Food {
     static int lowlimittemp = -25;
     static int highlimittemp = 135;
+    static int drycanmin = 18;
     String name = "";
     ProcessedFoodType processedType;
     boolean packed = false;
@@ -20,13 +17,33 @@ public class Food {
     boolean hasbeenserviced = false;
     int templow = 6;
     int temphigh = 6;
-   // private javax.swing.JList location = MainGameFrame.getJListTuodut();
+    int prodtemplow = 6;
+    int prodtemphigh = 6;
     
+    /**
+    * Creates food.
+    * 
+    * @param pname Food name
+    * @param pprocessedtype the type of the food
+    */
     Food (String pname, ProcessedFoodType pprocessedtype) {
         this.name = pname;
         this.processedType = pprocessedtype;
-        this.temphigh = pprocessedtype.getHighTemp();
-        this.templow = pprocessedtype.getLowTemp();
+        this.templow = pprocessedtype.getTempLow();
+        this.temphigh = pprocessedtype.getTempHigh();
+        this.prodtemplow = pprocessedtype.getProdTempLow();
+        this.prodtemphigh = pprocessedtype.getProdTempHigh();
+    }
+    
+    Food (Food f) { // Enums are not cloneable, so make a copy constructor
+        try {
+            for (Field field : f.getClass().getDeclaredFields())
+                field.set(this, field.get(f));
+            this.name = new String(f.name);
+            this.processedType = f.processedType;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
     
     public ProcessedFoodType getProcessedFoodType() {
@@ -57,38 +74,78 @@ public class Food {
         return temphigh;
     }
     
+    public int getProdtemplow() {
+        return prodtemplow;
+    }
+
+    public int getProdtemphigh() {
+        return prodtemphigh;
+    }
     String getName() {return this.name;}
     
     boolean isCanned() {return this.canned;}
     
     boolean getDried() {return this.dried;}
-       
-    private void setTempHigh (int t) {
-        if (t >= Food.lowlimittemp && t <= Food.highlimittemp)
-           temphigh=t;
-    }
     
     private void setTempLow(int t) {
         if (t >= Food.lowlimittemp && t <= Food.highlimittemp)
            templow=t;
     }
     
+    private void setTempHigh (int t) {
+        if (t >= Food.lowlimittemp && t <= Food.highlimittemp)
+           temphigh=t;
+    }
+    
+    private void setProdTempLow(int t) {
+        if (t >= Food.lowlimittemp && t <= Food.highlimittemp)
+           prodtemplow=t;
+    }
+    
+    private void setProdTempHigh (int t) {
+        if (t >= Food.lowlimittemp && t <= Food.highlimittemp)
+           prodtemphigh=t;
+    }
+    
     private void setCanned(boolean pcanned) {this.canned=pcanned;}
 
     private void setDried(boolean pdried) {this.dried=pdried;}
    
-    boolean easyToSpoil() {
-        if (canned || dried) return false;
+    boolean isEasyToSpoil() {
+        if ((canned && packed) || dried) return false;
         return (this.getProcessedFoodType().getEasilySpoiling());
     }
-   
-    public void canClosed() {this.setCanned(true); this.setPacked(true); 
-        this.setTempLow(lowlimittemp); this.setTempHigh(highlimittemp);}
+
+    /**
+    * Make the food canned with can closed.  The food will be packed.
+    * 
+    */
+    public void closeCan() {
+        this.setCanned(true); this.setPacked(true); 
+        this.setTempLow(drycanmin); this.setTempHigh(highlimittemp);
+        this.setProdTempLow(drycanmin); this.setProdTempHigh(highlimittemp);
+    }
     
-    public void canOpen() {this.setCanned(true); this.setPacked(false); 
-        this.setTempLow(this.getProcessedFoodType().getLowTemp());
-        this.setTempHigh(this.getProcessedFoodType().getHighTemp());}
+    /**
+    * Make the food canned with can open.  The food will not be packed.
+    * 
+    */
+    public void openCan() {
+        this.setCanned(true); this.setPacked(false); 
+        this.setTempLow(this.getProcessedFoodType().getTempLow());
+        this.setTempHigh(this.getProcessedFoodType().getTempHigh());
+        this.setProdTempLow(this.getProcessedFoodType().getProdTempLow());
+        this.setProdTempHigh(this.getProcessedFoodType().getProdTempHigh());
+    }
     
-    public void dry() {this.setDried(true); this.setTempLow(lowlimittemp); this.setTempHigh(highlimittemp);}
+    /**
+    * Make the food dried.
+    *
+    */
+    public void dry() {
+        this.setDried(true);
+        this.setTempLow(drycanmin); this.setTempHigh(highlimittemp);
+        this.setProdTempLow(drycanmin); this.setProdTempHigh(highlimittemp);
+    }
     
 }

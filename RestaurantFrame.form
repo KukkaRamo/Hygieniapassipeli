@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="Ravintola"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="66" green="0" red="66" type="rgb"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="jPanelTarjoilu" min="-2" pref="570" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="basePanel1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="10" max="32767" attributes="0"/>
+              <Component id="jPanelSailytys" min="-2" pref="631" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="basePanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="jPanelTarjoilu" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jPanelSailytys" min="-2" pref="718" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanelTarjoilu">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="Tarjoilu">
+              <Connection PropertyName="titleX" component="jPanelTarjoilu" name="name" type="property"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Tarjoilutilat"/>
+        <Property name="name" type="java.lang.String" value="Tarjoilu" noResource="true"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="0"/>
+        <Property name="rows" type="int" value="1"/>
+      </Layout>
+      <SubComponents>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetTarjoilu1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel1" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetTarjoilu2">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel2" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanelSailytys">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="S&#xe4;ilytys">
+              <Connection PropertyName="titleX" component="jPanelSailytys" name="name" type="property"/>
+            </TitledBorder>
+          </Border>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value="S&#xe4;ilytystilat"/>
+        <Property name="name" type="java.lang.String" value="S&#xe4;ilytys" noResource="true"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="0"/>
+        <Property name="rows" type="int" value="3"/>
+      </Layout>
+      <SubComponents>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys1">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel1" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys2">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel2" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys3">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel3" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys4">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel4" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys5">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel5" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys6">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel6" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys7">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel7" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys8">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel8" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="hygieniapeli.JPanelCabinet" name="jPanelCabinetSailytys9">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="cabinetPanel9" noResource="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="hygieniapeli.BasePanel" name="basePanel1">
+    </Component>
+  </SubComponents>
+</Form>

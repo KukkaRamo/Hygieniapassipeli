@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package hygieniapeli;
 
 import javax.swing.JTable;
@@ -20,8 +25,9 @@ public class JPanelResults extends javax.swing.JPanel {
         return jTableResults;
     }
     
-    public void setController (GameController pcontroller)
-        {this.controller = pcontroller;}
+    public void setController (GameController pcontroller) {
+        this.controller = pcontroller;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,7 +85,6 @@ public class JPanelResults extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTableResults.setToolTipText("Result table");
         jTableResults.setFillsViewportHeight(true);
         jTableResults.setIntercellSpacing(new java.awt.Dimension(2, 2));
         jTableResults.getTableHeader().setReorderingAllowed(false);
@@ -90,22 +95,22 @@ public class JPanelResults extends javax.swing.JPanel {
         jPanelResultsLayout.setHorizontalGroup(
             jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelResultsLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jButtonResults, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, Short.MAX_VALUE))
-            .addGroup(jPanelResultsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPaneResults, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPaneResults, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanelResultsLayout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(jButtonResults, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelResultsLayout.setVerticalGroup(
             jPanelResultsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelResultsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPaneResults, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jButtonResults, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -129,6 +134,7 @@ public class JPanelResults extends javax.swing.JPanel {
     private void jButtonResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResultsActionPerformed
         if (this.controller != null) this.controller.calculateResults();
     }//GEN-LAST:event_jButtonResultsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonResults;

@@ -19,7 +19,7 @@ public class BasePanel extends javax.swing.JPanel {
         initPlain(plainFoodStorageRoskakori, TrashName, true);
         initPlain(plainFoodStorageMulta, MouldName, false);
         initPlain(plainFoodStorageTuodut, ImportedName, true);
-        javax.swing.JOptionPane.showMessageDialog(null, "Tämä on kokeiluversio.  Faktat vielä väärin, pelaaminen omalla vastuulla.","Varoitus",javax.swing.JOptionPane.ERROR_MESSAGE);
+      //  javax.swing.JOptionPane.showMessageDialog(null, "Tämä on kokeiluversio.  Faktat vielä väärin, pelaaminen omalla vastuulla.","Varoitus",javax.swing.JOptionPane.ERROR_MESSAGE);
     }
 
     /**
@@ -79,6 +79,8 @@ public class BasePanel extends javax.swing.JPanel {
 
         setName("BasePanel"); // NOI18N
 
+        jPanelResults1.setToolTipText("Lasketut tulokset");
+
         plainFoodStorageRoskakori.setName("Roskakori"); // NOI18N
 
         plainFoodStorageTuodut.setToolTipText("Tilatut ruoat saapuvat tänne");
@@ -119,12 +121,12 @@ public class BasePanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(plainFoodStorageRoskakori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)))
-                .addGap(22, 22, 22)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(plainFoodStorageTuodut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(plainFoodStorageLattia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(plainFoodStorageMulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

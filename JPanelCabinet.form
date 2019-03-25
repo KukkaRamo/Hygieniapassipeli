@@ -93,7 +93,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="cabinetLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Temperature"/>
+        <Property name="text" type="java.lang.String" value="L&#xe4;mp&#xf6;tila"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cabinetLabelUnit">

@@ -63,7 +63,7 @@ public class JPanelCabinet extends javax.swing.JPanel {
         jSliderT.setValue(20);
         jSliderT.setName("cabinetSlider"); // NOI18N
 
-        cabinetLabel.setText("Temperature");
+        cabinetLabel.setText("Lämpötila");
 
         cabinetLabelUnit.setText("C");
 

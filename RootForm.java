@@ -45,7 +45,7 @@ public abstract class RootForm extends javax.swing.JFrame {
      *
      * @param pBasePanel     Food table for this form
      */
-    protected void setMyTopComponents( BasePanel pBasePanel) {
+    protected void setMyTopComponents(BasePanel pBasePanel) {
         MyBasePanel = pBasePanel;
         java.awt.Color mybgColor = new java.awt.Color(102,0,102);
         this.getContentPane().setBackground(mybgColor);
@@ -61,7 +61,9 @@ public abstract class RootForm extends javax.swing.JFrame {
             }
     }
     
-    public GameController getMyController() {return MyController;}
+    public GameController getMyController() {
+        return MyController;
+    }
     
     protected void setMyController(GameController pcontroller) {
         MyController=pcontroller;

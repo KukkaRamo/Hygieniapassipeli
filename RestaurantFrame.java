@@ -15,10 +15,10 @@ public class RestaurantFrame extends RootForm {
      * @param pnumOfFood How many food elements to import to the game
     */
     public RestaurantFrame(ArrayList<Food> FoodTable, int pDefaultTemp, boolean pselling, int pnumOfFood) {
-        super (FoodTable, pDefaultTemp, pselling);
+        super(FoodTable, pDefaultTemp, pselling);
         this.initComponents();
-        this.setMyTopComponents(basePanel1);
-        this.setMyController (new GameController(this, FoodTable, pnumOfFood));
+        super.setMyTopComponents(basePanel1);
+        super.setMyController(new GameController(this, FoodTable, pnumOfFood));
     }
 
     public javax.swing.JPanel getJPanelSailytys() {return this.jPanelSailytys;}

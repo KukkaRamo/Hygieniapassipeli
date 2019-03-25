@@ -8,7 +8,6 @@ import java.lang.reflect.Field;
 public class Food {
     static int lowlimittemp = -25;
     static int highlimittemp = 135;
-    static int drycanmin = 18;
     String name = "";
     ProcessedFoodType processedType;
     boolean packed = false;
@@ -38,8 +37,8 @@ public class Food {
     Food (Food f) { // Enums are not cloneable, so make a copy constructor
         try {
             for (Field field : f.getClass().getDeclaredFields())
-                field.set(this, field.get(f));
-            this.name = new String(f.name);
+                field.set(this, field.get(f)); // Maybe I should rather copy field by field, if used in multithreaded environments?
+            this.name = f.name;
             this.processedType = f.processedType;
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -122,8 +121,8 @@ public class Food {
     */
     public void closeCan() {
         this.setCanned(true); this.setPacked(true); 
-        this.setTempLow(drycanmin); this.setTempHigh(highlimittemp);
-        this.setProdTempLow(drycanmin); this.setProdTempHigh(highlimittemp);
+        this.setTempLow(lowlimittemp); this.setTempHigh(highlimittemp);
+        this.setProdTempLow(lowlimittemp); this.setProdTempHigh(highlimittemp);
     }
     
     /**
@@ -144,8 +143,8 @@ public class Food {
     */
     public void dry() {
         this.setDried(true);
-        this.setTempLow(drycanmin); this.setTempHigh(highlimittemp);
-        this.setProdTempLow(drycanmin); this.setProdTempHigh(highlimittemp);
+        this.setTempLow(lowlimittemp); this.setTempHigh(highlimittemp);
+        this.setProdTempLow(lowlimittemp); this.setProdTempHigh(highlimittemp);
     }
     
 }

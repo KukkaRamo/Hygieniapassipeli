@@ -53,19 +53,22 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="plainFoodStorageTuodut" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="plainFoodStorageLattia" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="plainFoodStorageMulta" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="hygieniapeli.JPanelResults" name="jPanelResults1">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Lasketut tulokset"/>
+      </Properties>
     </Component>
     <Component class="hygieniapeli.PlainFoodStorage" name="plainFoodStorageRoskakori">
       <Properties>

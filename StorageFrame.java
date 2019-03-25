@@ -15,11 +15,11 @@ public class StorageFrame extends RootForm {
      * @param pNumOfFood How many food elements to import to the game
      */
     
-    public StorageFrame(ArrayList<Food> FoodTable,int pDefaultTemp, boolean pselling, int pNumOfFood) {
+    public StorageFrame(ArrayList<Food> FoodTable, int pDefaultTemp, boolean pselling, int pNumOfFood) {
         super (FoodTable, pDefaultTemp, pselling);
         initComponents();
-        this.setMyTopComponents(basePanel1);
-        this.setMyController (new GameController(this, FoodTable, pNumOfFood)); 
+        super.setMyTopComponents(basePanel1);
+        super.setMyController (new GameController(this, FoodTable, pNumOfFood)); 
     }
     
     public javax.swing.JPanel getJPanelSailytys() {return this.jPanelSailytys;}
@@ -44,8 +44,6 @@ public class StorageFrame extends RootForm {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Teollisuusvarasto");
 
-        jPanelSailytys.setToolTipText("Säilytys");
-        jPanelSailytys.setName("Säilytys"); // NOI18N
         jPanelSailytys.setLayout(new java.awt.GridLayout(2, 0));
 
         jPanelCabinetSailytys1.setName("cabinetPanel1"); // NOI18N

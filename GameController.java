@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package hygieniapeli;
 import java.util.ArrayList;
 import java.util.Map;
@@ -77,7 +82,7 @@ public class GameController {
         for (java.awt.Component c : bmgf.getComponents())
             if (c != null && (c instanceof PlainFoodStorage))
                 initList(((PlainFoodStorage) c).getJListFood());
-        for (Map.Entry<String, javax.swing.JPanel> entry : mgf.getMyCabinetPanels().entrySet())
+        mgf.getMyCabinetPanels().entrySet().forEach((entry) -> {
             for (java.awt.Component c : entry.getValue().getComponents())
                 if (c != null && (c instanceof JPanelCabinet)) {
                     JPanelCabinet jpc = (JPanelCabinet) c;
@@ -87,6 +92,7 @@ public class GameController {
                     jpc.getJFormattedTextFieldT().addFocusListener(new MyTextFieldFocusListener());
                     initList (jpc.getPlainFoodStorage().getJListFood());
                 }
+        });
     }
     
     /**
@@ -105,7 +111,9 @@ public class GameController {
                     for (Object o : calculatedModel.foods) {
                         Food f = (Food) o;
                         if (thistemp > -12) { // No freezing
-                            int lowlimit = (selling) ? f.templow : f.prodtemplow;
+                            int lowlimit = (f.isEasyToSpoil()) 
+                            ? ((selling) ? f.templow : f.prodtemplow)
+                            : myDefaultTemp;
                             if (thistemp < lowlimit)
                                 energywaste += lowlimit - thistemp;
                         } // See also EY 853/2004: Fish freezing: T <=-18, 
@@ -148,7 +156,7 @@ public class GameController {
             javax.swing.JSlider source = (javax.swing.JSlider) e.getSource();
             if (!source.getValueIsAdjusting()) {
                 ((JPanelCabinet) source.getParent()).tempValue = source.getValue();
-             // The field has binding to the textfield but does not update model automatically.
+            // The field has binding to the textfield but does not update model automatically.
             }
         }
     }
